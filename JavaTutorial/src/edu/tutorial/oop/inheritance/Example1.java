@@ -1,8 +1,24 @@
 package edu.tutorial.oop.inheritance;
 
-class Animal {
+abstract class Animal {
+	public Animal() {
+		System.out.println("print in Animal class");
+	}
+	
+	public Animal(String name) {
+		System.out.println("print in Animal class with name: ");
+	}
+	
 	void walk(){
 		System.out.println("I am walking");
+	}
+	
+	abstract void fly() throws Exception;
+}
+
+class Dog extends Animal {
+	void fly() throws Exception {
+		throw new Exception("Sorry, I cannot fly!!");
 	}
 }
 
@@ -45,7 +61,7 @@ public class Example1 {
 	}
 
 	public static void example4() {
-		Animal animal = new Animal();
+		Animal animal = new Dog();
 		Bird bird = new Bird();
 		Eagle eagle = new Eagle();
 		
